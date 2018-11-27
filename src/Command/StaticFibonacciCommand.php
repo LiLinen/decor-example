@@ -36,7 +36,7 @@ class StaticFibonacciCommand extends Command
     {
         $this
             ->setDescription('Calculate a static Fibonacci number')
-            ->addOption('iterations' , 'i',  InputArgument::OPTIONAL, 'Iterations', 1)
+            ->addOption('iterations', 'i', InputArgument::OPTIONAL, 'Iterations', 1)
         ;
     }
 
@@ -47,7 +47,7 @@ class StaticFibonacciCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $io = new SymfonyStyle($input, $output);
-        $iterations = $input->getOption('iterations');
+        $iterations = (int)$input->getOption('iterations');
 
         $io->comment("Calculating {$this->fibonacci->getNumber()}-th fibonacci number... for $iterations iterations.");
 

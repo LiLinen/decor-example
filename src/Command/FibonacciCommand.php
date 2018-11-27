@@ -34,7 +34,7 @@ abstract class FibonacciCommand extends Command
         $this
             ->setDescription('Calculate Fibonacci number')
             ->addArgument('number', InputArgument::REQUIRED, 'Fibonacci number')
-            ->addOption('iterations' , 'i',  InputArgument::OPTIONAL, 'Iterations', 1)
+            ->addOption('iterations', 'i', InputArgument::OPTIONAL, 'Iterations', 1)
         ;
     }
 
@@ -45,8 +45,8 @@ abstract class FibonacciCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $io = new SymfonyStyle($input, $output);
-        $number = $input->getArgument('number');
-        $iterations = $input->getOption('iterations');
+        $number = (int)$input->getArgument('number');
+        $iterations = (int)$input->getOption('iterations');
 
         $io->comment("Calculating {$number}-th fibonacci number... for {$iterations} iterations.");
 
