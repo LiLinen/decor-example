@@ -39,4 +39,13 @@ services:
         tags:
             - { name: decorated }
 
+
+    App\Command\ProfileFibonacciCommand:
+        arguments:
+            $fibonacci: '@App\Fibonacci\ProfileFibonacci'
+
+    App\Fibonacci\ProfileFibonacci:
+        tags:
+            - { name: decorated }
+
     App\Fibonacci\FibonacciInterface: '@App\Fibonacci\NaiveFibonacci'
